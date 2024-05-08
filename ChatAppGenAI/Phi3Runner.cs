@@ -76,7 +76,6 @@ namespace ChatAppGenAI
                         break;
                     }
 
-                    await Task.Delay(0, ct).ConfigureAwait(false);
                     generator.ComputeLogits();
                     generator.GenerateNextToken();
                     part = tokenizerStream.Decode(generator.GetSequence(0)[^1]);
