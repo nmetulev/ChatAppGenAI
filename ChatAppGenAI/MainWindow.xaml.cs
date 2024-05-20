@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.UI;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -16,6 +17,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -46,6 +48,20 @@ namespace ChatAppGenAI
                     textBox.Text = string.Empty;
                 }
             }
+        }
+        public static SolidColorBrush PhiMessageTypeToColor(PhiMessageType type)
+        {
+            return (type == PhiMessageType.User) ? new SolidColorBrush(Colors.White) : new SolidColorBrush(Color.FromArgb(255, 68, 228, 255));
+        }
+
+        public static SolidColorBrush PhiMessageTypeToForeground(PhiMessageType type)
+        {
+            return (type == PhiMessageType.User) ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
+        }
+
+        public static Visibility BoolToVisibleInversed(bool value)
+        {
+            return value ? Visibility.Collapsed : Visibility.Visible;
         }
     }
     public partial class VM: ObservableObject

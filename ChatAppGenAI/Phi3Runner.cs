@@ -15,7 +15,7 @@ namespace ChatAppGenAI
 {
     public class Phi3Runner : IDisposable
     {
-        private readonly string ModelDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phi-3-directml-int4-awq-block-128");
+        private readonly string ModelDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phi3");
 
         private Model? model = null;
         private Tokenizer? tokenizer = null;
